@@ -20,6 +20,7 @@ class SideShip:
     def run_game(self):
         while True:
             self._check_events()
+            self.ship.update()
             self._update_screen()
 
     def _check_events(self):
@@ -36,6 +37,8 @@ class SideShip:
             self.ship.moving_up = True
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = True
+        elif event.key == pygame.K_q:
+            sys.exit()
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_UP:

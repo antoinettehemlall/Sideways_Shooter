@@ -2,6 +2,8 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship
+
 
 class SideShip:
 
@@ -12,6 +14,8 @@ class SideShip:
         self.screen = pygame.display.set_mode(
             (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Sideways Shooter")
+
+        self.ship = Ship(self)
 
     def run_game(self):
         while True:
@@ -25,7 +29,7 @@ class SideShip:
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
-
+        self.ship.blitme()
 
         pygame.display.flip()
 
